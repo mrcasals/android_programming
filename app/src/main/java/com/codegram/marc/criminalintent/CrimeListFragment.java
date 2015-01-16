@@ -38,6 +38,12 @@ public class CrimeListFragment extends ListFragment {
         startActivity(i);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+
     private class CrimeAdapter extends ArrayAdapter<Crime> {
         public CrimeAdapter(ArrayList<Crime> crimes) {
             // required to properly hook up your dataset of Crimes
